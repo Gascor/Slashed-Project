@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Management Console
+Comment=Management Console for System Monitoring and Database Management
+Exec=python3 c:/Users/lucas/Downloads/app.ico/src/SP_Management_Console.py
+Icon=c:/Users/lucas/Downloads/app.ico/src/resources/app.ico
+Terminal=false
+Categories=Utility;Application;
