@@ -9,7 +9,7 @@ services:
     restart: unless-stopped
 
   db:
-    image: mariadb:latest
+    image: mariadb:10.5 # Specify a more precise version
     environment:
       MYSQL_ROOT_PASSWORD: example
       MYSQL_DATABASE: slashed_project
