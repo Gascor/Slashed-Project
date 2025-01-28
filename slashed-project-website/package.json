@@ -14,6 +14,7 @@
     },
     "devDependencies": {
       "@angular/cli": "^12.2.18",
-      "@angular-devkit/build-angular": "^12.2.18"
+      "@angular-devkit/build-angular": "^12.2.18",
+      "@angular/compiler-cli": "^12.2.17"
     }
   }
