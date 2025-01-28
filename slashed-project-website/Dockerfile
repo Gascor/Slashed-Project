@@ -1,8 +1,8 @@
 # Build stage
-FROM node:16 as build-stage
+FROM node:20 as build-stage
 WORKDIR /app
 COPY package*.json ./
-RUN npm install -g npm@latest # Ensuring npm is up to date
+RUN npm install -g npm@latest # Ensure npm is up to date
 RUN npm install
 COPY . .
 RUN npm run build --configuration production
