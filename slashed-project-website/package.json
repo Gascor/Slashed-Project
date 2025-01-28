@@ -1,0 +1,17 @@
+{
+    "name": "slashed-project",
+    "version": "1.0.0",
+    "description": "Slashed Project",
+    "main": "index.js",
+    "scripts": {
+      "start": "node index.js",
+      "build": "ng build --prod"
+    },
+    "dependencies": {
+      "express": "^4.17.1",
+      "angular": "^13.0.0"
+    },
+    "devDependencies": {
+      "@angular/cli": "^13.0.0"
+    }
+  }
