@@ -9,9 +9,10 @@
     },
     "dependencies": {
       "express": "^4.17.1",
-      "@angular/core": "^12.0.0"
+      "@angular/core": "^12.2.17",
+      "zone.js": "~0.11.4"
     },
     "devDependencies": {
-      "@angular/cli": "^12.0.0"
+      "@angular/cli": "^12.2.18"
     }
   }
