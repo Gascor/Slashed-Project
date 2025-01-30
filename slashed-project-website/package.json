@@ -4,7 +4,7 @@
   "description": "Slashed Project",
   "main": "index.js",
   "scripts": {
-  "build": "ng build slashed-project --configuration production"
+    "build": "ng build slashed-project --configuration production"
   },
   "dependencies": {
     "express": "^4.17.1",
