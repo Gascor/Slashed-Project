@@ -15,3 +15,4 @@ COPY --from=build-stage /app/dist/slashed-project /usr/share/nginx/html
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
 
 RUN ls -la /usr/share/nginx/html
+RUN ls -la /usr/share/nginx
