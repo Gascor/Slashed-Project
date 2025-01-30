@@ -6,7 +6,7 @@ RUN npm install -g npm@latest # Ensure npm is up to date
 RUN npm install -g @angular/cli # Install Angular CLI globally
 RUN npm install # Install project dependencies
 COPY . .
-RUN ls -la /app/slashed-project/slashed-project-website/src/environments
+RUN ls -la /app/slashed-project/slashed-project-website
 RUN npm run build -- --configuration production
 
 
