@@ -1,75 +1,20 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1,
-  "newProjectRoot": "projects",
-  "projects": {
-    "slashed-project": {
-      "projectType": "application",
-      "schematics": {},
-      "root": "",
-      "sourceRoot": "src",
-      "prefix": "app",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/slashed-project",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "extractCss": true,
-              "namedChunks": false,
-              "aot": true,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "slashed-project:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "slashed-project:build:production"
-            }
-          }
-        }
-      }
+    "name": "slashed-project",
+    "version": "1.0.0",
+    "description": "Slashed Project",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "build": "ng build slashed-project --configuration production"
+    },
+    "dependencies": {
+      "express": "^4.17.1",
+      "@angular/core": "^12.2.17",
+      "zone.js": "~0.11.4"
+    },
+    "devDependencies": {
+      "@angular/cli": "^12.2.18",
+      "@angular-devkit/build-angular": "^12.2.18",
+      "@angular/compiler-cli": "^12.2.17"
     }
-  },
-  "defaultProject": "slashed-project",
-  "scripts": {
-    "build": "ng build slashed-project --configuration production"
   }
-}
