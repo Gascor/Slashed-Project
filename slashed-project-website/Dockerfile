@@ -13,3 +13,5 @@ RUN npm run build -- --configuration production
 FROM nginx:stable
 COPY --from=build-stage /app/dist/slashed-project /usr/share/nginx/html
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
+
+RUN ls -la /usr/share/nginx/html
