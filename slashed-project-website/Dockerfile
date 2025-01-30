@@ -6,6 +6,7 @@ RUN npm install -g npm@latest # Ensure npm is up to date
 RUN npm install -g @angular/cli # Install Angular CLI globally
 RUN npm install # Install project dependencies
 COPY . .
+ENV NODE_OPTIONS=--openssl-legacy-provider
 RUN npm run build -- --configuration production
 
 # Serve stage
