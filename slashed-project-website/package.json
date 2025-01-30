@@ -25,9 +25,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": {
-              "build": "ng build --configuration production"
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -70,5 +68,8 @@
       }
     }
   },
-  "defaultProject": "slashed-project"
+  "defaultProject": "slashed-project",
+  "scripts": {
+    "build": "ng build --configuration production"
+  }
 }
