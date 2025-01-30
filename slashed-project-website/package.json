@@ -70,6 +70,6 @@
   },
   "defaultProject": "slashed-project",
   "scripts": {
-    "build": "ng build --configuration production"
+    "build": "ng build slashed-project --configuration production"
   }
 }
