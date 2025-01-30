@@ -4,8 +4,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install -g npm@latest # Ensure npm is up to date
 RUN npm install -g @angular/cli # Install Angular CLI globally
-RUN npm install @angular-devkit/build-angular # Install Angular Devkit
-RUN npm install
+RUN npm install # Install project dependencies
 COPY . .
 RUN npm run build --configuration production
 
