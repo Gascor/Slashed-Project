@@ -68,8 +68,5 @@
       }
     }
   },
-  "defaultProject": "slashed-project",
-  "scripts": {
-    "build": "ng build slashed-project --configuration production"
-  }
+  "defaultProject": "slashed-project"
 }
