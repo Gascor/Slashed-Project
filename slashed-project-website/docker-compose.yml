@@ -8,17 +8,16 @@ services:
     volumes:
       - ./:/app
       - ./data:/data
+      - /etc/letsencrypt/live/slashed-project.fr/fullchain.pem:/etc/letsencrypt/live/slashed-project.fr/fullchain.pem:ro
+      - /etc/letsencrypt/live/slashed-project.fr/privkey.pem:/etc/letsencrypt/live/slashed-project.fr/privkey.pem:ro
     restart: unless-stopped
 
   db:
-    image: mariadb:10.5 # Specify a more precise version
+    image: mariadb:10.5
     environment:
       MYSQL_ROOT_PASSWORD: example
-      MYSQL_DATABASE: slashed_project
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
-    volumes:
-      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
     restart: unless-stopped
 
 volumes:
