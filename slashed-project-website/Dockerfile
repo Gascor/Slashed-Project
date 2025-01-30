@@ -8,8 +8,12 @@ RUN npm install # Install project dependencies
 COPY . .
 RUN pwd
 RUN ls -la .
-RUN ls -la ..
-RUN ls -la ../..
+RUN cd ..
+RUN pwd
+RUN ls -la .
+RUN cd ../..
+RUN pwd
+RUN ls -la .
 RUN npm run build -- --configuration production
 # Serve stage
 FROM nginx:stable
