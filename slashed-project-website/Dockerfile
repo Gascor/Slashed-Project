@@ -7,6 +7,7 @@ RUN npm install -g @angular/cli # Install Angular CLI globally
 RUN npm install # Install project dependencies
 COPY . .
 RUN npm run build -- --configuration production
+
 # Serve stage
 FROM nginx:stable
 COPY --from=build-stage /app/dist/slashed-project /usr/share/nginx/html
