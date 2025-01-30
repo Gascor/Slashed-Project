@@ -13,5 +13,3 @@ RUN npm run build -- --configuration production
 FROM nginx:stable
 COPY --from=build-stage /app/dist/slashed-project /usr/share/nginx/html
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
-COPY /etc/letsencrypt/live/slashed-project.fr/fullchain.pem /etc/letsencrypt/live/slashed-project.fr/fullchain.pem
-COPY /etc/letsencrypt/live/slashed-project.fr/privkey.pem /etc/letsencrypt/live/slashed-project.fr/privkey.pem
