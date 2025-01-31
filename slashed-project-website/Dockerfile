@@ -8,7 +8,7 @@ RUN npm install # Install project dependencies
 COPY . .
 ENV NODE_OPTIONS=--openssl-legacy-provider
 RUN npm run build -- --configuration production
-RUN ls -la /app/dist/slashed-project # List the contents of the build directory
+RUN ls -la /app/dist/slashed-project # List the contents of the build directoryd
 
 # Serve stage
 FROM nginx:stable
