@@ -43,30 +43,11 @@
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "slashed-project:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "slashed-project:build:production"
+              "buildOptimizer": true
             }
           }
         }
       }
     }
-  },
-  "defaultProject": "slashed-project"
+  }
 }
