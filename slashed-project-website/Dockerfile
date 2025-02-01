@@ -5,6 +5,7 @@ COPY package*.json ./
 RUN npm install -g npm@latest && \
     npm install -g @angular/cli && \
     npm install && \
+    npm audit fix --force && \
     npm cache clean --force
 COPY . .
 ENV NODE_OPTIONS=--openssl-legacy-provider
