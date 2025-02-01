@@ -1,1 +1,1 @@
-import 'zone.js/dist/zone';  // Included with Angular CLI.
+import 'zone.js';  // Met à jour l'import pour la compatibilité avec Angular 19+
