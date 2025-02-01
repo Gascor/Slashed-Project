@@ -1,17 +1,20 @@
-# Build stage
-FROM node:20 as build-stage
+# Build stage with a specific version and less privileged base image
+FROM node:20-alpine as build-stage
 WORKDIR /app
 COPY package*.json ./
-RUN npm install -g npm@latest # Ensure npm is up to date
-RUN npm install -g @angular/cli # Install Angular CLI globally
-RUN npm install # Install project dependencies
+RUN npm install -g npm@latest && \
+    npm install -g @angular/cli && \
+    npm install && \
+    npm cache clean --force
 COPY . .
 ENV NODE_OPTIONS=--openssl-legacy-provider
 RUN npm run build -- --configuration production
-RUN ls -la /app/dist/slashed-project # List the contents of the build directory
 
 # Serve stage
-FROM nginx:stable
+FROM nginx:stable-alpine
 COPY --from=build-stage /app/dist/slashed-project /usr/share/nginx/html
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
-RUN ls -la /usr/share/nginx/html # List the contents of the Nginx root directory
+RUN mkdir -p /etc/nginx/html && \
+    cp -R /usr/share/nginx/html/* /etc/nginx/html/ && \
+    chmod -R 755 /etc/nginx/html && \
+    chown -R nginx:nginx /etc/nginx/html
