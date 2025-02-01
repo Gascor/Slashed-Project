@@ -10,7 +10,7 @@
     "@angular/core": "^19.1.2",
     "@angular/platform-browser": "^19.1.2",
     "@angular/platform-browser-dynamic": "^19.1.2",
-    "zone.js": "~0.13.0"
+    "zone.js": "~0.15.0"
   },
   "devDependencies": {
     "@angular/cli": "^19.1.2",
