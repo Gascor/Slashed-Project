@@ -4,6 +4,8 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  standalone: true,  // Utilisation de standalone
+  standalone: true
 })
-export class AppComponent {}
+export class AppComponent {
+  title = 'Slashed Project';  // Ajoutez cette propriété
+}
