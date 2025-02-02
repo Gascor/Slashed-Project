@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { VideoBackgroundComponent } from './video-background/video-background.component'; // Chemin corrigé
+import { VideoBackgroundComponent } from './video-background.component'; // Chemin corrigé
 
 @Component({
   selector: 'app-root',
