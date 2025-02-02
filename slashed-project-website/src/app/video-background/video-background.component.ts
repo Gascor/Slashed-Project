@@ -19,7 +19,10 @@ export class VideoBackgroundComponent implements AfterViewInit {
     // Essayer de jouer la vidéo immédiatement
     tryPlayVideo();
 
-    // Ajouter un écouteur d'événements pour détecter les interactions de l'utilisateur
+    // Ajouter un écouteur d'événements pour détecter les mouvements de la souris
+    document.addEventListener('mousemove', () => {
+      tryPlayVideo();
+    });
     document.addEventListener('click', () => {
       tryPlayVideo();
     });
