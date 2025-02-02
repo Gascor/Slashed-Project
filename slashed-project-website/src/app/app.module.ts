@@ -1,15 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { VideoBackgroundComponent } from './video-background.component'; // Chemin corrigé
+import { VideoBackgroundComponent } from './video-background/video-background.component'; // Chemin corrigé
 
 @NgModule({
-  declarations: [
+  imports: [
+    BrowserModule,
     AppComponent,
     VideoBackgroundComponent
-  ],
-  imports: [
-    BrowserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
