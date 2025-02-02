@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-video-background',
@@ -6,4 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./video-background.component.css'],
   standalone: true
 })
-export class VideoBackgroundComponent { }
+export class VideoBackgroundComponent implements AfterViewInit {
+  ngAfterViewInit() {
+    const video = document.getElementById('video-background') as HTMLVideoElement;
+    video.addEventListener('canplay', () => {
+      video.play();
+    });
+  }
+}
