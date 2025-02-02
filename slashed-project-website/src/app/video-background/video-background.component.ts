@@ -9,8 +9,16 @@ import { Component, AfterViewInit } from '@angular/core';
 export class VideoBackgroundComponent implements AfterViewInit {
   ngAfterViewInit() {
     const video = document.getElementById('video-background') as HTMLVideoElement;
-    video.addEventListener('canplay', () => {
-      video.play();
-    });
+
+    const tryPlayVideo = () => {
+      video.play().catch(error => {
+        console.error('Erreur lors de la lecture de la vidéo:', error);
+        // Réessayer de jouer la vidéo après un court délai
+        setTimeout(tryPlayVideo, 1000);
+      });
+    };
+
+    // Essayer de jouer la vidéo immédiatement
+    tryPlayVideo();
   }
 }
