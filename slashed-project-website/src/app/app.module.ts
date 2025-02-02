@@ -1,9 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
+import { VideoBackgroundComponent } from './video-background/video-background.component'; // Adjust the path as necessary
 
 @NgModule({
-  imports: [BrowserModule, AppComponent],  // Importer au lieu de déclarer
+  declarations: [
+    AppComponent,
+    VideoBackgroundComponent  // Make sure this is included
+  ],
+  imports: [
+    BrowserModule
+  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
