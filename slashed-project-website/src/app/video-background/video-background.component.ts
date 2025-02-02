@@ -13,12 +13,19 @@ export class VideoBackgroundComponent implements AfterViewInit {
     const tryPlayVideo = () => {
       video.play().catch(error => {
         console.error('Erreur lors de la lecture de la vidéo:', error);
-        // Réessayer de jouer la vidéo après un court délai
-        setTimeout(tryPlayVideo, 1000);
       });
     };
 
     // Essayer de jouer la vidéo immédiatement
     tryPlayVideo();
+
+    // Ajouter un écouteur d'événements pour détecter les interactions de l'utilisateur
+    document.addEventListener('click', () => {
+      tryPlayVideo();
+    });
+
+    document.addEventListener('keydown', () => {
+      tryPlayVideo();
+    });
   }
 }
