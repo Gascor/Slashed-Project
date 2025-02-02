@@ -8,7 +8,7 @@
     margin: 10px auto;
     width: 95%;
     height: 7vh;
-    max-width: 1200px;
+    max-width: 95%;
     position: relative; /* Position relative pour que l'en-tête ne soit pas fixe */
   }
   
