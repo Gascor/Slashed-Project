@@ -7,7 +7,7 @@
     border-radius: 15px;
     margin: 10px auto;
     width: 95%;
-    height: 7vh;
+    height: 6vh;
     max-width: 95%;
     position: relative; /* Position relative pour que l'en-tête ne soit pas fixe */
   }
