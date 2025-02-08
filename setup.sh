@@ -82,12 +82,6 @@ view_logs() {
 # Fonction pour déployer l'API et la base de données
 deploy_api_and_db() {
     echo "Déploiement de l'API et de la base de données..."
-    if [ -d "$API_DB_DIR" ]; then
-        sudo rm -rf "$API_DB_DIR"
-    fi
-
-    echo "Création du répertoire $API_DB_DIR"
-    mkdir -p "$API_DB_DIR"
 
     echo "Clonage du dépôt dans $API_DB_DIR"
     git clone "https://${GITHUB_TOKEN}@${REPO_URL}" "$API_DB_DIR"
