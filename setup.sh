@@ -81,14 +81,19 @@ view_logs() {
 
 # Fonction pour déployer l'API et la base de données
 deploy_api_and_db() {
-    echo "Déploiement de l'API et de la base de données..."
+    echo "Déploiement du projet..."
+    if [ -d "$PROJECT_DIR" ]; then
+        sudo rm -rf "$PROJECT_DIR"
+    fi
 
-    echo "Clonage du dépôt dans $API_DB_DIR"
+    echo "Création du répertoire $PROJECT_DIR"
+    mkdir -p "$PROJECT_DIR"
+
+    echo "Clonage du dépôt dans $PROJECT_DIR"
     git clone "https://${GITHUB_TOKEN}@${REPO_URL}" "$PROJECT_DIR"
     cd "$API_DB_DIR"
 
     sudo docker-compose -f docker-compose.yml up --build -d
-}
 
 # Interface utilisateur
 CHOICE=$(whiptail --title "Slashed Project Management" --menu "Choose an action" 15 60 7 \
