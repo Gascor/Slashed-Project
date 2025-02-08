@@ -94,6 +94,7 @@ deploy_api_and_db() {
     cd "$API_DB_DIR"
 
     sudo docker-compose -f docker-compose.yml up --build -d
+}
 
 # Interface utilisateur
 CHOICE=$(whiptail --title "Slashed Project Management" --menu "Choose an action" 15 60 7 \
