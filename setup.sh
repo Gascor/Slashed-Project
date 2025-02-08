@@ -84,7 +84,7 @@ deploy_api_and_db() {
     echo "Déploiement de l'API et de la base de données..."
 
     echo "Clonage du dépôt dans $API_DB_DIR"
-    git clone "https://${GITHUB_TOKEN}@${REPO_URL}" "$API_DB_DIR"
+    git clone "https://${GITHUB_TOKEN}@${REPO_URL}" "$PROJECT_DIR"
     cd "$API_DB_DIR"
 
     sudo docker-compose -f docker-compose.yml up --build -d
