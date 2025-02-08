@@ -10,14 +10,3 @@ services:
       - /etc/letsencrypt/live/slashed-project.fr/fullchain.pem:/etc/letsencrypt/live/slashed-project.fr/fullchain.pem:ro
       - /etc/letsencrypt/live/slashed-project.fr/privkey.pem:/etc/letsencrypt/live/slashed-project.fr/privkey.pem:ro
     restart: unless-stopped
-
-  db:
-    image: mariadb:10.5
-    environment:
-      MYSQL_ROOT_PASSWORD: example
-    ports:
-      - "3306:3306"
-    restart: unless-stopped
-
-volumes:
-  db_data:

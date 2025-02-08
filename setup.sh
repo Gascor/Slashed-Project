@@ -6,6 +6,7 @@ set -e  # Arrête le script en cas d'erreur
 REPO_URL="github.com/Gascor/Slashed-Project.git"
 PROJECT_DIR="/home/ubuntu/slashed-project"
 DEPLOY_DIR="$PROJECT_DIR/slashed-project-website"
+API_DB_DIR="$PROJECT_DIR/slashed-project-server"
 GITHUB_TOKEN="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"
 
 # Vérifiez si GITHUB_TOKEN est configuré
@@ -78,14 +79,32 @@ view_logs() {
     sudo docker-compose -f docker-compose.yml logs -f
 }
 
+# Fonction pour déployer l'API et la base de données
+deploy_api_and_db() {
+    echo "Déploiement de l'API et de la base de données..."
+    if [ -d "$API_DB_DIR" ]; then
+        sudo rm -rf "$API_DB_DIR"
+    fi
+
+    echo "Création du répertoire $API_DB_DIR"
+    mkdir -p "$API_DB_DIR"
+
+    echo "Clonage du dépôt dans $API_DB_DIR"
+    git clone "https://${GITHUB_TOKEN}@${REPO_URL}" "$API_DB_DIR"
+    cd "$API_DB_DIR"
+
+    sudo docker-compose -f docker-compose.yml up --build -d
+}
+
 # Interface utilisateur
-CHOICE=$(whiptail --title "Slashed Project Management" --menu "Choose an action" 15 60 6 \
+CHOICE=$(whiptail --title "Slashed Project Management" --menu "Choose an action" 15 60 7 \
 "1" "Deploy Project" \
 "2" "Update Project" \
 "3" "Uninstall Project" \
 "4" "Install Dependencies" \
 "5" "Check Status" \
-"6" "View Logs" 3>&1 1>&2 2>&3)
+"6" "View Logs" \
+"7" "Deploy API and Database" 3>&1 1>&2 2>&3)
 
 case $CHOICE in
     1)
@@ -107,6 +126,10 @@ case $CHOICE in
         ;;
     6)
         view_logs
+        ;;
+    7)
+        install_dependencies
+        deploy_api_and_db
         ;;
 esac
 
