@@ -60,8 +60,8 @@ uninstall_project() {
     echo "Désinstallation du projet..."
     cd "$DEPLOY_DIR"
     sudo docker-compose -f docker-compose.yml down
-    cd ../"$API_DB_DIR"
     sudo docker rmi $(sudo docker images 'slashed-project_web' -a -q)
+    cd ../"$API_DB_DIR"
     sudo docker rmi $(sudo docker images 'slashed-project-server_db_1' -a -q)
     sudo docker rmi $(sudo docker images 'slashed-project-server_server_1' -a -q)
     sudo docker volume prune -f
