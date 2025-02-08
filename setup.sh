@@ -57,14 +57,21 @@ update_project() {
 
 # Fonction pour désinstaller le projet
 uninstall_project() {
-    echo "Désinstallation du projet..."
+    echo "Désinstallation du projet principal..."
     cd "$DEPLOY_DIR"
     sudo docker-compose -f docker-compose.yml down
-    sudo docker rmi $(sudo docker images 'slashed-project_web' -a -q)
-    cd ../"$API_DB_DIR"
-    sudo docker rmi $(sudo docker images 'slashed-project-server_db_1' -a -q)
-    sudo docker rmi $(sudo docker images 'slashed-project-server_server_1' -a -q)
+    sudo docker rmi $(sudo docker images 'slashed-project_web' -a -q) || true
+
+    echo "Désinstallation de l'API et de la base de données..."
+    cd "$API_DB_DIR"
+    sudo docker-compose -f docker-compose.yml down
+    sudo docker rmi $(sudo docker images 'slashed-project-server_server' -a -q) || true
+    sudo docker rmi $(sudo docker images 'slashed-project-server_db' -a -q) || true
+
+    echo "Suppression des volumes Docker..."
     sudo docker volume prune -f
+
+    echo "Suppression des répertoires de projet..."
     sudo rm -rf $PROJECT_DIR
 }
 
