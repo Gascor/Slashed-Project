@@ -2,23 +2,31 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-export interface News {
-  id: number;
-  title: string;
-  description: string;
-  image_url: string;
-  created_at: string;
-}
-
 @Injectable({
   providedIn: 'root'
 })
 export class NewsService {
-  private apiUrl = 'https://apigw-slashedproject.fr/news';
+  private apiUrl = 'http://localhost:3000/news';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  getNews(): Observable<News[]> {
-    return this.http.get<News[]>(this.apiUrl);
+  getNews(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
+  }
+
+  getNewsById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
+  }
+
+  addNews(news: any): Observable<any> {
+    return this.http.post<any>(this.apiUrl, news);
+  }
+
+  updateNews(id: number, news: any): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/${id}`, news);
+  }
+
+  deleteNews(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/${id}`);
   }
 }

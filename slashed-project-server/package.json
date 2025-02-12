@@ -4,10 +4,12 @@
     "description": "API server for Slashed Project",
     "main": "server.js",
     "scripts": {
-      "start": "node server.js"
+        "start": "node server.js"
     },
     "dependencies": {
-      "express": "^4.17.3",
-      "pg": "^8.7.1"
+        "express": "^4.17.3",
+        "pg": "^8.7.1",
+        "bcrypt": "^5.0.1",
+        "jsonwebtoken": "^8.5.1"
     }
-  }
+}
