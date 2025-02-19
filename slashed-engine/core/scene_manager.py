@@ -40,12 +40,19 @@ class SceneManager:
         return program
 
     def init_scene(self):
-        # Initialisation de la scène
-        # Ajoutez ici le code pour initialiser les objets de la scène
-        pass
+        # Recharger les shaders (et recréer d'autres objets si nécessaire)
+        self.program = self.init_shaders()
+        # Ici vous pouvez également initialiser vos buffers, textures, etc.
+
 
     def render_scene(self, screen_width, screen_height, camera):
+        if not (self.program and glIsProgram(self.program)):
+            print("⚠️ Shader program non valide après changement de résolution, rechargement...")
+            self.init_scene()  # Recharge les shaders si besoin
+
         glUseProgram(self.program)
+
+
         check_gl_errors()
 
         projection = camera.get_projection_matrix(screen_width, screen_height)

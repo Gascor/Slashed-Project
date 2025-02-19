@@ -2,8 +2,9 @@
     "fullscreen": true,
     "volume": 100,
     "resolution": {
-        "width": 1024,
-        "height": 768
+        "width": 2560,
+        "height": 1440
     },
-    "aspect-ratio": "4:3"
+    "aspect-ratio": "16:9",
+    "gpu": "NVIDIA"
 }

@@ -1,31 +1,38 @@
+import os
+import sys
+from core.config import load_config
 from slashed_game import SlashedGame
 from display.cinematic import Cinematic
-import OpenGL.GL as gl
-from OpenGL.GLUT import *
+from utils.utils import configure_gpu, init_glut, register_callbacks
 import threading
-from core.config import load_config
 
 def main():
+    # Charger la configuration
     config = load_config()
-    game = SlashedGame(screen_width=config["resolution"]["width"], screen_height=config["resolution"]["height"], fullscreen=config["fullscreen"])
-    game.init()  # Initialiser le contexte OpenGL avant de jouer la cinématique
+    
+    # Configurer le GPU
+    configure_gpu(config)
 
-    # Enregistrer la fonction de rappel d'affichage
-    glutDisplayFunc(game.display)
-    glutIdleFunc(game.display)
-    glutMouseFunc(game.mouse_click)
-    glutMotionFunc(game.mouse_motion)
-    glutKeyboardFunc(game.keyboard)
-    glutReshapeFunc(game.reshape)
+    # Initialiser GLUT
+    init_glut(config)
 
-    # Créer une instance de la classe Cinematic et l'affecter à game.cinematic
+    game = SlashedGame(
+        screen_width=config["resolution"]["width"],
+        screen_height=config["resolution"]["height"],
+        fullscreen=config["fullscreen"]
+    )
+    game.init()  # Initialise le contexte OpenGL (sans recréer la fenêtre en Game Mode)
+
+    # Enregistrer les callbacks sur la fenêtre active (celle de Game Mode ou celle créée par init_window)
+    register_callbacks(game)
+
     cinematic = Cinematic(game)
     game.cinematic = cinematic  # ASSIGNATION IMPORTANTE
     cinematic_thread = threading.Thread(target=cinematic.play, args=('slashed-engine/assets/video/cinematic.mp4',))
     cinematic_thread.start()
 
-    game.run()
-    game.check_gl_errors()  # Vérifiez les erreurs après avoir exécuté le jeu
+    game.run()  # Probablement appelle glutMainLoop() dans votre GameEngine
+    game.check_gl_errors()  # Vérifie les erreurs après l'exécution du jeu
 
 if __name__ == "__main__":
     main()
