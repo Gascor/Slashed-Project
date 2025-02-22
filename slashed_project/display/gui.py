@@ -110,7 +110,7 @@ class Button:
         glColor3f(0, 0, 0)
         glRasterPos2f(self.x + 10, self.y + 20)
         for char in self.label:
-            glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, ord(char))
+            glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, ord(char)) # type: ignore
 
 
     def is_inside(self, x, y):

@@ -1,0 +1,21 @@
+<svg width="1200" height="200" viewBox="0 0 1200 200" xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <defs>
+    <style type="text/css">
+      <![CDATA[
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+        .logo-text {
+          font-family: 'Orbitron', sans-serif;
+          font-size: 72px;
+          fill: #FFFFFF; /* Texte en blanc */
+          letter-spacing: 1px; /* Espacement entre les lettres */
+        }
+      ]]>
+    </style>
+  </defs>
+  
+  <!-- Texte principal, incliné vers la droite -->
+  <text class="logo-text" x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" transform="translate(0, 0)">
+    SLASHED STUDIOS
+  </text>
+</svg>

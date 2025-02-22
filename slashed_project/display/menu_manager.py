@@ -27,7 +27,7 @@ class MenuManager:
 
 
     def play_background_music(self):
-        winsound.PlaySound("slashed-engine/assets/sounds/menu_theme.wav", winsound.SND_FILENAME | winsound.SND_LOOP | winsound.SND_ASYNC)
+        winsound.PlaySound("slashed_project/assets/sounds/menu_theme.wav", winsound.SND_FILENAME | winsound.SND_LOOP | winsound.SND_ASYNC)
 
     def stop_background_music(self):
         winsound.PlaySound(None, winsound.SND_PURGE)

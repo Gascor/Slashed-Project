@@ -14,8 +14,8 @@ class SceneManager:
 
     def init_shaders(self):
         # Chargement des sources des shaders à partir des fichiers
-        vertex_shader_source = self.load_shader_source('slashed-engine/assets/shaders/vertex_shader.glsl')
-        fragment_shader_source = self.load_shader_source('slashed-engine/assets/shaders/fragment_shader.glsl')
+        vertex_shader_source = self.load_shader_source('slashed_project/assets/shaders/vertex_shader.glsl')
+        fragment_shader_source = self.load_shader_source('slashed_project/assets/shaders/fragment_shader.glsl')
 
         # Compilation et liaison des shaders
         vertex_shader = glCreateShader(GL_VERTEX_SHADER)

@@ -9,7 +9,7 @@ from utils.shapes.rectangle import Rectangle  # ✅ Ajoute cet import en haut du
 
 # ✅ Charger les positions depuis le JSON
 def load_ui_positions():
-    with open("slashed-engine/display/ui_positions.json", "r") as file:
+    with open("slashed_project/display/ui_positions.json", "r") as file:
         return json.load(file)
     
 class Menu:
