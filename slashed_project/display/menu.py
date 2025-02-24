@@ -91,27 +91,23 @@ class Menu:
 
 class MainMenu(Menu):
     def __init__(self, switch_to_settings, game):
-        super().__init__(game)  # ✅ On passe seulement `game`
-        self.config = load_config()  # Charger la config actuelle
-        self.ui_positions = load_ui_positions()  # Charger les positions UI
+        super().__init__(game)
+        self.config = load_config()
+        self.ui_positions = load_ui_positions()
         self.game = game
 
-        # ✅ Récupérer la résolution et le ratio actuel
         aspect_ratio = self.config["aspect-ratio"]
         resolution = f'{self.config["resolution"]["width"]}x{self.config["resolution"]["height"]}'
 
-        # ✅ Vérifier si la résolution est définie dans le JSON
         if aspect_ratio in self.ui_positions and resolution in self.ui_positions[aspect_ratio]:
             positions = self.ui_positions[aspect_ratio][resolution]
         else:
             print(f"❌ Résolution {resolution} non définie dans le JSON ! Utilisation des valeurs par défaut.")
             positions = {}
 
-        # ✅ Fonction pour récupérer les valeurs avec fallback
         def get_pos(label, default):
             return positions.get(label, default)
 
-        # ✅ Ajouter les boutons avec les positions dynamiques
         self.add_button(Button(
             label="Singleplayer",
             x=get_pos("Singleplayer", {"x": 150})["x"],
@@ -120,7 +116,6 @@ class MainMenu(Menu):
             height=get_pos("Singleplayer", {"height": 70})["height"],
             callback=self.start_game
         ))
-            
         self.add_button(Button("Multiplayer", callback=self.multiplayer, **get_pos("Multiplayer", {"x": 150, "y": 850, "width": 500, "height": 70})))
         self.add_button(Button("Settings", callback=switch_to_settings, **get_pos("Settings", {"x": 150, "y": 750, "width": 500, "height": 70})))
         self.add_button(Button("About", callback=self.about, **get_pos("About", {"x": 150, "y": 650, "width": 500, "height": 70})))
@@ -128,7 +123,7 @@ class MainMenu(Menu):
 
     def start_game(self):
         print("Start Game button clicked")
-        winsound.PlaySound(None, winsound.SND_PURGE)  # Arrêter la musique de fond
+        winsound.PlaySound(None, winsound.SND_PURGE)
 
     def multiplayer(self):
         print("Multiplayer button clicked")
@@ -138,7 +133,7 @@ class MainMenu(Menu):
 
     def exit_game(self):
         print("Exit button clicked")
-        winsound.PlaySound(None, winsound.SND_PURGE)  # Arrêter la musique de fond
+        winsound.PlaySound(None, winsound.SND_PURGE)
         glutLeaveMainLoop()
 
 class SettingsMenu(Menu):

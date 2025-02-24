@@ -35,7 +35,7 @@ class GameLauncher(QObject):
 
         cinematic = Cinematic(game)
         game.cinematic = cinematic  # ASSIGNATION IMPORTANTE
-        cinematic_thread = threading.Thread(target=cinematic.play, args=('slashed_project/assets/video/cinematic.mp4',))
+        cinematic_thread = threading.Thread(target=cinematic.play, args=('slashed_project/assets/video/cinematicV2.mp4',))
         cinematic_thread.start()
 
         game.run()  # Probablement appelle glutMainLoop() dans votre GameEngine

@@ -32,6 +32,7 @@ class SlashedGame(GameEngine):
     def init_window(self):
         glutInitWindowSize(self.screen_width, self.screen_height)
         self.window_id = glutCreateWindow(b"Slashed Project")
+        glutSetWindowTitle(b"Slashed Project")
         glutSetWindow(self.window_id)
         glutPositionWindow(100, 100)
 
@@ -213,6 +214,9 @@ class SlashedGame(GameEngine):
                 print(f"🔄 Requesting Game Mode: {mode_str}")
                 glutGameModeString(mode_str)
                 if glutGameModeGet(GLUT_GAME_MODE_POSSIBLE):
+                    glutCreateWindow(b"Slashed Project")
+                    glutSetWindowTitle(b"Slashed Project")
+
                     glutEnterGameMode()
                     self.window_id = glutGetWindow()  # Nouvelle fenêtre en Game Mode
                     print(f"✅ Entered Game Mode, window ID: {self.window_id}")
@@ -244,6 +248,7 @@ class SlashedGame(GameEngine):
                     print("🔄 No active window found, creating new window in windowed mode")
                     glutInitWindowSize(self.screen_width, self.screen_height)
                     self.window_id = glutCreateWindow(b"Slashed Project")
+                    glutSetWindowTitle(b"Slashed Project")
                     glutSetWindow(self.window_id)
                     glutPositionWindow(100, 100)
 

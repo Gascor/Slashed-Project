@@ -1,6 +1,6 @@
 {
     "aspect-ratio": "16:9",
-    "fullscreen": false,
+    "fullscreen": true,
     "volume": 100,
     "resolution": {
         "width": 2560,

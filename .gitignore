@@ -1,6 +1,7 @@
-management-console/0.0.102a/src/dist/
-management-console/0.0.114a/src/dist/
-management-console/0.0.123a/src/dist/
-management-console/0.0.130a/src/dist/
+management-console/*/src/dist/
 slashed_project/assets/video/
 slashed_project/assets/sounds/
+slashed_project/*.dist/
+slashed_project/*.build/
+slashed_project/dist/*.dist/
+slashed_project/dist/*.build/
